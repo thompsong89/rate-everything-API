@@ -130,9 +130,13 @@ class RateEverythingAPI extends API
     }
 
 		/**
-     * @api GET /addEntityRating get entity rating
+     * @api POST /addEntityRating get entity rating
      * @apiName addEntityRating
-     * @requires entityId (passed as url endpoint)
+     * @requires entityId
+     * @requires rating
+     * @requires username
+     * @requires userip
+     * @requires userinfo
      * @requires rating (passed as url endpoint)
      * @apiSuccess {String} status Request Status {Success/Fail}.
      */
