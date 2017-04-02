@@ -157,7 +157,7 @@ class RateEverythingAPI extends API
                 throw new Exception('Error saving rating');
             }
         } else {
-            throw new Exception('Database error when saving rating'.$this->db->getError());
+            throw new Exception('Database error when saving rating');
         }
 			}
 			else
