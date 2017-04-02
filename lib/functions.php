@@ -20,7 +20,7 @@ if ($_SERVER['SERVER_NAME'] == 'rate-everything.app') {//localhost
     define('DB_PORT',getenv('OPENSHIFT_MYSQL_DB_PORT'));
     define('DB_USER',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
     define('DB_PASSWORD',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
-    define('DB_NAME',getenv('OPENSHIFT_GEAR_NAME'))
+    define('DB_NAME',getenv('OPENSHIFT_GEAR_NAME'));
     define('DATA_DIR', '');
 }
 
