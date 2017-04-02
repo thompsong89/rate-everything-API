@@ -70,26 +70,23 @@ class RateEverythingAPI extends API
      */
     protected function entityList()
     {
-			if($this->method == 'GET')
-			{
-        $entityquery = 'SELECT id as entityId, name, description FROM entities';
-        $entityresult = $this->db->execute($entityquery);
-        if ($entityresult !== false) {
-            if ($this->db->count() > 0) {
-                return json_encode(array('entities' => $entityresult,
+        if ($this->method == 'GET') {
+            $entityquery = 'SELECT id as entityId, name, description FROM entities';
+            $entityresult = $this->db->execute($entityquery);
+            if ($entityresult !== false) {
+                if ($this->db->count() > 0) {
+                    return json_encode(array('entities' => $entityresult,
                     'status' => 'success',
                     'response' => 'Entities loaded successfully', ));
+                } else {
+                    throw new Exception('Wrong entity count for query');
+                }
             } else {
-                throw new Exception('Wrong entity count for query');
+                throw new Exception('Database error when retrieving entities');
             }
         } else {
-            throw new Exception('Database error when retrieving entities');
+            throw new Exception('Only accepts GET requests');
         }
-			}
-			else
-			{
-				throw new Exception('Only accepts GET requests');
-			}
     }
 
     /**
@@ -101,35 +98,31 @@ class RateEverythingAPI extends API
      */
     protected function entityRating()
     {
-			if($this->method == 'GET')
-			{
-        $entityId = isset($this->args[0]) && is_numeric($this->args[0]) ? $this->args[0] : 0;
-        $ratingquery = "SELECT rating, username, userip, userinfo FROM entityrating where entityId='{$entityId}'";
-        $ratingresult = $this->db->execute($ratingquery);
-        if ($ratingresult !== false) {
-            if ($this->db->count() > 0) {
-                foreach ($ratingresult as $key => $row)
-								{
-									$ratingresult['total']+=$row['rating'];
-                }
+        if ($this->method == 'GET') {
+            $entityId = isset($this->args[0]) && is_numeric($this->args[0]) ? $this->args[0] : 0;
+            $ratingquery = "SELECT rating, username, userip, userinfo FROM entityrating where entityId='{$entityId}'";
+            $ratingresult = $this->db->execute($ratingquery);
+            if ($ratingresult !== false) {
+                if ($this->db->count() > 0) {
+                    foreach ($ratingresult as $key => $row) {
+                        $ratingresult['total'] += $row['rating'];
+                    }
 
-                return json_encode(array('rating' => $ratingresult,
+                    return json_encode(array('rating' => $ratingresult,
                     'status' => 'success',
                     'response' => 'Rating loaded successfully', ));
+                } else {
+                    throw new Exception('Wrong rating count for query');
+                }
             } else {
-                throw new Exception('Wrong rating count for query');
+                throw new Exception('Database error when retrieving rating');
             }
         } else {
-            throw new Exception('Database error when retrieving rating');
+            throw new Exception('Only accepts GET requests');
         }
-			}
-			else
-			{
-				throw new Exception('Only accepts GET requests');
-			}
     }
 
-		/**
+    /**
      * @api POST /addEntityRating get entity rating
      * @apiName addEntityRating
      * @requires entityId
@@ -141,32 +134,27 @@ class RateEverythingAPI extends API
      */
     protected function addEntityRating()
     {
-			if($this->method == 'POST')
-			{
-        $entityId = $this->request['entityId'];
-				$rating = $this->request['rating'];
-				$username = $this->request['username'];
-				$userip = $this->request['userip'];
-				$userinfo = $this->request['userinfo'];
-        $ratingquery = "INSERT INTO entityrating (entityId,rating, username, userip, userinfo) values ('{$entityId}','{$rating}','{$username}','{$userip}','{$userinfo}')";
-        $ratingresult = $this->db->execute($ratingquery);
-        if ($ratingresult !== false) {
-            if ($this->db->affectedRows() > 0) {
-
-                return json_encode(array(
+        if ($this->method == 'POST') {
+            $entityId = $this->request['entityId'];
+            $rating = $this->request['rating'];
+            $username = $this->request['username'];
+            $userip = $this->request['userip'];
+            $userinfo = $this->request['userinfo'];
+            $ratingquery = "INSERT INTO entityrating (entityId,rating, username, userip, userinfo) values ('{$entityId}','{$rating}','{$username}','{$userip}','{$userinfo}')";
+            $ratingresult = $this->db->execute($ratingquery);
+            if ($ratingresult !== false) {
+                if ($this->db->affectedRows() > 0) {
+                    return json_encode(array(
                     'status' => 'success',
                     'response' => 'Rating saved successfully', ));
+                } else {
+                    throw new Exception('Error saving rating');
+                }
             } else {
-                throw new Exception('Error saving rating');
+                throw new Exception('Database error when saving rating');
             }
         } else {
-            throw new Exception('Database error when saving rating');
+            throw new Exception('Only accepts POST requests');
         }
-			}
-			else
-			{
-				throw new Exception('Only accepts POST requests');
-			}
     }
-
 }
