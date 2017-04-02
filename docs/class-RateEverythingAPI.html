@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class RateEverythingAPI</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+		</div>
+
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-API.html">API</a></li>
+				<li class="active"><a href="class-RateEverythingAPI.html">RateEverythingAPI</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class RateEverythingAPI</h1>
+
+
+	<div class="description">
+	<p>The basic methodology will be:
+Data retrieval via Curl
+Data posting via Ajax.</p>
+
+<p>If you need to test the API to validate data I suggest the following chrome plugin, works very well:
+https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo?utm_source=chrome-ntp-icon</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-API.html"><span>API</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>RateEverythingAPI</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		
+
+			<b>Located at</b> <a href="source-class-RateEverythingAPI.html#5-169" title="Go to source code">rateEverythingAPI.class.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="entityList" id="_entityList">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_entityList">#</a>
+		<code><a href="source-class-RateEverythingAPI.html#65-93" title="Go to source code">entityList</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+				<h4>Api</h4>
+				<div class="list">
+						GET /entityList Get entity list<br>
+				</div>
+				<h4>Apiname</h4>
+				<div class="list">
+						entityList<br>
+				</div>
+				<h4>Apisuccess</h4>
+				<div class="list">
+						{String} status Request Status {Success/Fail}.<br>
+						{Array} entities List of entities<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="entityRating" id="_entityRating">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_entityRating">#</a>
+		<code><a href="source-class-RateEverythingAPI.html#95-130" title="Go to source code">entityRating</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+				<h4>Api</h4>
+				<div class="list">
+						GET /entityRating get entity rating<br>
+				</div>
+				<h4>Apiname</h4>
+				<div class="list">
+						entityRating<br>
+				</div>
+				<h4>Apisuccess</h4>
+				<div class="list">
+						{String} status Request Status {Success/Fail}.<br>
+						{String} entityRating Entity Rating<br>
+				</div>
+				<h4>Requires</h4>
+				<div class="list">
+						entityId (passed as url endpoint)<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addEntityRating" id="_addEntityRating">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addEntityRating">#</a>
+		<code><a href="source-class-RateEverythingAPI.html#132-167" title="Go to source code">addEntityRating</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+				<h4>Api</h4>
+				<div class="list">
+						GET /addEntityRating get entity rating<br>
+				</div>
+				<h4>Apiname</h4>
+				<div class="list">
+						addEntityRating<br>
+				</div>
+				<h4>Apisuccess</h4>
+				<div class="list">
+						{String} status Request Status {Success/Fail}.<br>
+				</div>
+				<h4>Requires</h4>
+				<div class="list">
+						entityId (passed as url endpoint)<br>
+						rating (passed as url endpoint)<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-API.html#methods">API</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-API.html#___construct">__construct()</a>, 
+			<a href="class-API.html#_processAPI">processAPI()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="db" id="$db">
+		<td class="attributes"><code>
+			protected  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-RateEverythingAPI.html#19" title="Go to source code"><var>$db</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$db" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-API.html#properties">API</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-API.html#$args"><var>$args</var></a>, 
+			<a href="class-API.html#$endpoint"><var>$endpoint</var></a>, 
+			<a href="class-API.html#$file"><var>$file</var></a>, 
+			<a href="class-API.html#$method"><var>$method</var></a>, 
+			<a href="class-API.html#$verb"><var>$verb</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
