@@ -16,11 +16,11 @@ if ($_SERVER['SERVER_NAME'] == 'rate-everything.app') {//localhost
     define('DATA_DIR', '');
 } elseif ($_SERVER['SERVER_NAME'] == 'rateeverythingapi-aracnoweb.rhcloud.com') {//openshift
     define('HOST_URL', 'http://'.$_SERVER['SERVER_NAME'].'/');
-    define('DB_HOST', $OPENSHIFT_MYSQL_DB_HOST);
-    define('DB_PORT', $OPENSHIFT_MYSQL_DB_PORT);
-    define('DB_USER', 'admin39an5fJ');
-    define('DB_PASSWORD', 'Gb_lz673_Z2f');
-    define('DB_NAME', 'rateeverythingapi');
+    define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
+    define('DB_PORT',getenv('OPENSHIFT_MYSQL_DB_PORT'));
+    define('DB_USER',getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
+    define('DB_PASSWORD',getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
+    define('DB_NAME',getenv('OPENSHIFT_GEAR_NAME'))
     define('DATA_DIR', '');
 }
 
