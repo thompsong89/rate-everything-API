@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.6.34)
 # Database: rate-everything
-# Generation Time: 2017-04-03 11:34:54 +0000
+# Generation Time: 2017-04-03 11:47:24 +0000
 # ************************************************************
 
 
@@ -56,6 +56,7 @@ CREATE TABLE `entityrating` (
   `username` varchar(255) DEFAULT NULL,
   `userip` varchar(50) DEFAULT NULL,
   `userinfo` varchar(255) DEFAULT NULL,
+  `cdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
