@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.6.34)
 # Database: rate-everything
-# Generation Time: 2017-04-03 11:00:31 +0000
+# Generation Time: 2017-04-03 11:34:54 +0000
 # ************************************************************
 
 
@@ -20,6 +20,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
+# Dump of table entities
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `entities`;
+
+CREATE TABLE `entities` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `type` enum('restaurant','hotel') NOT NULL DEFAULT 'restaurant',
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `description` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `entities` WRITE;
+/*!40000 ALTER TABLE `entities` DISABLE KEYS */;
+
+INSERT INTO `entities` (`id`, `type`, `name`, `description`)
+VALUES
+	(1,'restaurant','McDonald\'s','Do you in a pinch, but don\'t live off it');
+
+/*!40000 ALTER TABLE `entities` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table entityrating
 # ------------------------------------------------------------
 
@@ -30,7 +54,7 @@ CREATE TABLE `entityrating` (
   `entityId` int(11) NOT NULL DEFAULT '0',
   `rating` int(11) NOT NULL DEFAULT '0',
   `username` varchar(255) DEFAULT NULL,
-  `userip` varchar(25) DEFAULT NULL,
+  `userip` varchar(50) DEFAULT NULL,
   `userinfo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

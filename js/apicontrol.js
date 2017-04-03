@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	$('#username').val($.cookie("username"));
 	$.getJSON("http://"+$(location).attr('hostname')+"/rest/entityList", function (data) {
 		var options = '<option value="">Please Select</option>';
 		for (var i = 0; i < data.entities.length; i++) {
@@ -21,6 +22,7 @@ $(document).ready(function () {
 	
 	function addEntityRating(rate){
 		if ($('#username').val() != "" && $('#entitylist').val()!="") {
+			$.cookie("username", $('#username').val());
 			$.post("http://"+$(location).attr('hostname')+"/rest/addEntityRating", {
 				entityId: $('#entitylist').val(),
 				rating: rate,
