@@ -1,0 +1,12 @@
+.center {
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+	text-align:center;
+}
+.container {
+	width: 80%;
+	height: 200px;
+	margin: auto;
+	padding: 10px;
+}
