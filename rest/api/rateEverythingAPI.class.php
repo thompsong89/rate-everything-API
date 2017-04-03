@@ -128,8 +128,6 @@ class RateEverythingAPI extends API
      * @requires entityId
      * @requires rating
      * @requires username
-     * @requires userip
-     * @requires userinfo
      * @apiSuccess {String} status Request Status {Success/Fail}.
      */
     protected function addEntityRating()

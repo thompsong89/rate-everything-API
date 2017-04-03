@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.6.34)
 # Database: rate-everything
-# Generation Time: 2017-04-02 18:04:49 +0000
+# Generation Time: 2017-04-03 11:00:31 +0000
 # ************************************************************
 
 
@@ -18,30 +18,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
-
-# Dump of table entities
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `entities`;
-
-CREATE TABLE `entities` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `type` enum('restaurant','hotel') NOT NULL DEFAULT 'restaurant',
-  `name` varchar(255) NOT NULL DEFAULT '',
-  `description` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-LOCK TABLES `entities` WRITE;
-/*!40000 ALTER TABLE `entities` DISABLE KEYS */;
-
-INSERT INTO `entities` (`id`, `type`, `name`, `description`)
-VALUES
-	(1,'restaurant','McDonald\'s','Do you in a pinch, but don\'t live off it');
-
-/*!40000 ALTER TABLE `entities` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table entityrating
@@ -59,19 +35,6 @@ CREATE TABLE `entityrating` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `entityrating` WRITE;
-/*!40000 ALTER TABLE `entityrating` DISABLE KEYS */;
-
-INSERT INTO `entityrating` (`id`, `entityId`, `rating`, `username`, `userip`, `userinfo`)
-VALUES
-	(1,1,-1,'foraern','127.0.0.1',NULL),
-	(2,1,0,'michael','127.0.0.1',NULL),
-	(3,1,1,'foraern','127.0.0.1',NULL),
-	(4,1,1,'michael','127.0.0.1',NULL),
-	(5,1,1,'ricardo','192.168.1.1','');
-
-/*!40000 ALTER TABLE `entityrating` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 
