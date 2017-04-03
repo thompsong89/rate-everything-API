@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	$.getJSON("http://re.app/rest/entityList", function (data) {
+	$.getJSON("http://"+$(location).attr('hostname')+"/rest/entityList", function (data) {
 		var options = '<option value="">Please Select</option>';
 		for (var i = 0; i < data.entities.length; i++) {
 			options += '<option value="' + data.entities[i].entityId + '">' + data.entities[i].name + '</option>';
@@ -21,7 +21,7 @@ $(document).ready(function () {
 	
 	function addEntityRating(rate){
 		if ($('#username').val() != "" && $('#entitylist').val()!="") {
-			$.post("http://re.app/rest/addEntityRating", {
+			$.post("http://"+$(location).attr('hostname')+"/rest/addEntityRating", {
 				entityId: $('#entitylist').val(),
 				rating: rate,
 				username: $('#username').val()
