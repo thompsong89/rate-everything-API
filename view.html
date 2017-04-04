@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Rate Everything</title>
+		<meta name="description" content="Rate Everything">
+		<meta name="author" content="">
+
+		<link rel="stylesheet" href="css/styles.css?v=1.0">
+		<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+		<script src="js/apicontrol.js"></script>
+	</head>
+	<body>
+		<div id="container">
+			<form name="rateform" method="post">
+				<div class="center">
+					<a class="toggles" href="index.html">Switch to Rating</a>&nbsp;<a class="toggles_active" href="#">Viewing</a>
+				</div>
+				<div class="center">
+					<select id="entitylist"></select>
+				</div>
+				<div class="center">
+					<h1 id="ratiorating"></h1>
+				</div>
+				<div class="center">
+					<p id="description">Please select a restaurant.</p>
+				</div>
+				<div class="center">
+					<a href="faq.html">FAQ's</a>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

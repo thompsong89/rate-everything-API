@@ -81,6 +81,44 @@ class RateEverythingAPI extends API
 
 		return $full_ip_info;
 	}
+	
+	/**
+	 * @api GET /entity Get entity details
+	 * @apiName entityList
+	 * @requires entityId
+	 * @apiSuccess {String} status Request Status {Success/Fail}.
+	 * @apiSuccess {Array} entity List of entity details
+	 */
+	protected function entity()
+	{
+		if($this->method == 'GET')
+		{
+			$entityId = isset($this->args[0]) && is_numeric($this->args[0]) ? $this->args[0] : 0;
+			$entityquery = "SELECT id as entityId, name, description,temp_rating FROM entities where id='{$entityId}'";
+			$entityresult = $this->db->execute($entityquery);
+			if($entityresult !== false)
+			{
+				if($this->db->count() > 0)
+				{
+					return json_encode(array('entity' => $entityresult,
+						'status' => 'success',
+						'response' => 'Entities loaded successfully',));
+				}
+				else
+				{
+					throw new Exception('Wrong entity count for query');
+				}
+			}
+			else
+			{
+				throw new Exception('Database error when retrieving entities');
+			}
+		}
+		else
+		{
+			throw new Exception('Only accepts GET requests');
+		}
+	}
 
 	/**
 	 * @api GET /entityList Get entity list
@@ -92,7 +130,7 @@ class RateEverythingAPI extends API
 	{
 		if($this->method == 'GET')
 		{
-			$entityquery = 'SELECT id as entityId, name, description FROM entities';
+			$entityquery = "SELECT id as entityId, name, description,temp_rating FROM entities";
 			$entityresult = $this->db->execute($entityquery);
 			if($entityresult !== false)
 			{
